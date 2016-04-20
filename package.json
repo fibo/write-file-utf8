@@ -4,6 +4,7 @@
   "description": "shortcut to fs.writeFile",
   "main": "index.js",
   "scripts": {
+    "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/fibo/write-file-utf8/issues"
   },
-  "homepage": "http://npm.im/write-file-utf8"
+  "homepage": "http://npm.im/write-file-utf8",
+  "dependencies": {
+    "static-props": "^1.0.0"
+  }
 }

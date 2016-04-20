@@ -2,6 +2,48 @@
 
 > shortcut to [fs.writeFile][writeFile]
 
+* [Installation](#installation)
+* [API](#api)
+* [Usage](#usage)
+* [See also](#see-also)
+* [License](#license)
+
+## Installation
+
+With [npm](https://npmjs.org/) do
+
+```bash
+npm install read-file-utf8
+```
+
+## API
+
+### `writeFileUtf8(filePath, content)`
+
+* **@param** `{String}` filePath
+* **@param** `{String}` content
+
+### `writeFileUtf8.error`
+
+An object exposing the following error messages:
+
+* contentIsNotString
+
+For example, try the following snippet
+
+```javascript
+var write = require('read-file-utf8')
+
+try {
+  var buffer = new Buffer('a')
+  write('/tmp/foo', buffer)
+} catch (err) {
+  if (err.message === write.error.contentIsNotString) {
+    console.log('Hey, are buffers utf-8 encoded?')
+  }
+}
+```
+
 ## Usage
 
 ```
@@ -30,13 +72,13 @@ function throwError (err) {
 fs.writeFile(filePath, content, 'utf8', throwError)
 ```
 
-## License
-
-[MIT](http://g14n.info/mit-license/)
-
 ## See also
 
 * [read-file-utf8](http://npm.im/read-file-utf8)
 * [fs.writeFile][writeFile]
+
+## License
+
+[MIT](http://g14n.info/mit-license/)
 
 [writeFile]: https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback
