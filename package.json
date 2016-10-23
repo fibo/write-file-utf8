@@ -1,6 +1,6 @@
 {
   "name": "write-file-utf8",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "shortcut to fs.writeFile",
   "main": "index.js",
   "scripts": {
