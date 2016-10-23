@@ -2,11 +2,11 @@
 
 > shortcut to [fs.writeFile][writeFile]
 
-* [Installation](#installation)
-* [API](#api)
-* [Usage](#usage)
-* [See also](#see-also)
-* [License](#license)
+[Installation](#installation) |
+[API](#api) |
+[Usage](#usage) |
+[See also](#see-also) |
+[License](#license)
 
 ## Installation
 
@@ -18,10 +18,11 @@ npm install read-file-utf8
 
 ## API
 
-### `writeFileUtf8(filePath, content)`
+### `writeFileUtf8(filePath, content[, callback])`
 
 * **@param** `{String}` filePath
 * **@param** `{String}` content
+* **@param** `{Function}` [callback] defaults to a trivial `if (err) throw err`
 
 ### `writeFileUtf8.error`
 
@@ -46,7 +47,7 @@ try {
 
 ## Usage
 
-```
+```javascript
 var write = require('write-file-utf8')
 
 var filePath = '/tmp/foo'
@@ -57,7 +58,7 @@ write(filePath, content)
 
 Actually is the same as
 
-```
+```javascript
 var fs = require('fs')
 
 var filePath = '/tmp/foo'
@@ -70,6 +71,16 @@ function throwError (err) {
 }
 
 fs.writeFile(filePath, content, 'utf8', throwError)
+```
+
+It accepts also an optional callback, for example
+
+```javascript
+write(filePath, content, (err) => {
+  if (err) throw err
+
+  console.log(`File saved: ${filePath}`)
+})
 ```
 
 ## See also

@@ -8,9 +8,7 @@ staticProps(error)({
 })
 
 function throwError (err) {
-  if (err) {
-    throw err
-  }
+  if (err) throw err
 }
 
 /**
@@ -18,11 +16,15 @@ function throwError (err) {
  *
  * @param {String} filePath
  * @param {String} content
+ * @param {Function} callback
  */
 
-function writeFileUtf8 (filePath, content) {
+function writeFileUtf8 (filePath, content, callback) {
+  // Argument callback defaults to throwError.
+  if (typeof callback !== 'function') callback = throwError
+
   if (typeof content === 'string') {
-    fs.writeFile(filePath, content, 'utf8', throwError)
+    fs.writeFile(filePath, content, 'utf8', callback)
   } else {
     throw TypeError(error.contentIsNotString)
   }
