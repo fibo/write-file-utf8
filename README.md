@@ -13,7 +13,7 @@
 With [npm](https://npmjs.org/) do
 
 ```bash
-npm install read-file-utf8
+npm install write-file-utf8
 ```
 
 ## API
@@ -33,7 +33,7 @@ An object exposing the following error messages:
 For example, try the following snippet
 
 ```javascript
-var write = require('read-file-utf8')
+var write = require('write-file-utf8')
 
 try {
   var buffer = new Buffer('a')
