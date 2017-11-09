@@ -1,7 +1,7 @@
-var fs = require('fs')
-var staticProps = require('static-props')
+const fs = require('fs')
+const staticProps = require('static-props')
 
-var error = {}
+const error = {}
 
 staticProps(error)({
   contentIsNotString: 'write-file-utf8 / argument "content" is not a string'
@@ -16,7 +16,7 @@ function throwError (err) {
  *
  * @param {String} filePath
  * @param {String} content
- * @param {Function} callback
+ * @param {Function} [callback]
  */
 
 function writeFileUtf8 (filePath, content, callback) {
@@ -30,6 +30,6 @@ function writeFileUtf8 (filePath, content, callback) {
   }
 }
 
-staticProps(writeFileUtf8)({ error: error })
+staticProps(writeFileUtf8)({ error })
 
 module.exports = writeFileUtf8

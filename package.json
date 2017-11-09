@@ -2,9 +2,10 @@
   "name": "write-file-utf8",
   "version": "1.2.0",
   "description": "shortcut to fs.writeFile",
-  "main": "index.js",
+  "main": "write-file-utf8.js",
   "scripts": {
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
+    "lint": "standa",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,8 +24,12 @@
   "bugs": {
     "url": "https://github.com/fibo/write-file-utf8/issues"
   },
-  "homepage": "http://npm.im/write-file-utf8",
+  "homepage": "http://g14n.info/write-file-utf8",
   "dependencies": {
     "static-props": "^1.0.0"
+  },
+  "devDependencies": {
+    "safe-buffer": "^5.1.1",
+    "standa": "^1.0.2"
   }
 }

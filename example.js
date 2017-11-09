@@ -1,4 +1,5 @@
-var write = require('./index')
+const Buffer = require('safe-buffer').Buffer
+const write = require('./write-file-utf8')
 
 write('/tmp/foo', 'Hello bar')
 
