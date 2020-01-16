@@ -1,35 +1,34 @@
 const fs = require('fs')
-const staticProps = require('static-props')
-
-const error = {}
-
-staticProps(error)({
-  contentIsNotString: 'write-file-utf8 / argument "content" is not a string'
-})
-
-function throwError (err) {
-  if (err) throw err
-}
+const mkdirp = require('mkdirp')
+const path = require('path')
 
 /**
- * Write content to file using utf8 encoding
+ * Writes content to file using utf8 encoding.
  *
  * @param {String} filePath
  * @param {String} content
- * @param {Function} [callback]
+ *
+ * @return {Promise}
  */
 
 function writeFileUtf8 (filePath, content, callback) {
-  // Argument callback defaults to throwError.
-  if (typeof callback !== 'function') callback = throwError
+  return new Promise((resolve, reject) => {
+    const dir = path.dirname(filePath)
 
-  if (typeof content === 'string') {
-    fs.writeFile(filePath, content, 'utf8', callback)
-  } else {
-    throw TypeError(error.contentIsNotString)
-  }
+    mkdirp(dir, {}, (error) => {
+      if (error) {
+        reject(error)
+      } else {
+        fs.writeFile(filePath, content, 'utf8', (error) => {
+          if (error) {
+            reject(error)
+          } else {
+            resolve()
+          }
+        })
+      }
+    })
+  })
 }
-
-staticProps(writeFileUtf8)({ error })
 
 module.exports = writeFileUtf8

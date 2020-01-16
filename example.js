@@ -1,13 +1,14 @@
-const Buffer = require('safe-buffer').Buffer
-const write = require('./write-file-utf8')
+const write = require('write-file-utf8')
 
-write('/tmp/foo', 'Hello bar')
+const filePath1 = '/tmp/foo/bar.txt'
+const filePath2 = '/tmp/foo/bar/quz.txt'
+const content = 'Hello'
 
-try {
-  var buffer = new Buffer('a')
-  write('/tmp/foo', buffer)
-} catch (err) {
-  if (err.message === write.error.contentIsNotString) {
-    console.log('Hey, are buffers utf-8 encoded?')
-  }
+async function example () {
+  await write(filePath1, content)
+
+  const buffer = new Buffer.from(content)
+  await write(filePath2, buffer)
 }
+
+example()

@@ -1,6 +1,6 @@
 # write-file-utf8
 
-> shortcut to [fs.writeFile][writeFile]
+> writes content to file using utf-8 encoding, tries to create directory with [mkdirp]
 
 [Installation](#installation) |
 [API](#api) |
@@ -18,78 +18,41 @@ npm install write-file-utf8
 
 ## API
 
-### `writeFileUtf8(filePath, content[, callback])`
+### `write(filePath, content)`
 
-* **@param** `{String}` filePath
-* **@param** `{String}` content
-* **@param** `{Function}` [callback] defaults to a trivial `if (err) throw err`
+It is an function that returns a *Promise* and requires the following parameters:
 
-### `writeFileUtf8.error`
-
-An object exposing the following error messages:
-
-* contentIsNotString
-
-For example, try the following snippet
-
-```javascript
-var write = require('write-file-utf8')
-
-try {
-  var buffer = new Buffer('a')
-  write('/tmp/foo', buffer)
-} catch (err) {
-  if (err.message === write.error.contentIsNotString) {
-    console.log('Hey, are buffers utf-8 encoded?')
-  }
-}
-```
+* **@param** `{String}` *filePath* can be inside a nested folder that does not exist yet
+* **@param** `{String|Buffer}` *content* will be written using *utf-8* encoding
 
 ## Usage
 
 ```javascript
-var write = require('write-file-utf8')
+const write = require('write-file-utf8')
 
-var filePath = '/tmp/foo'
-var content = 'bar'
+const filePath1 = '/tmp/foo/bar.txt'
+const filePath2 = '/tmp/foo/bar/quz.txt'
+const content = 'Hello'
 
-write(filePath, content)
-```
+async function example () {
+  await write(filePath1, content)
 
-Actually is the same as
-
-```javascript
-var fs = require('fs')
-
-var filePath = '/tmp/foo'
-var content = 'bar'
-
-function throwError (err) {
-  if (err) {
-    throw err
-  }
+  const buffer = new Buffer.from(content) // this is an utf-8 encoded buffer
+  await write(filePath2, buffer)
 }
 
-fs.writeFile(filePath, content, 'utf8', throwError)
-```
-
-It accepts also an optional callback, for example
-
-```javascript
-write(filePath, content, (err) => {
-  if (err) throw err
-
-  console.log(`File saved: ${filePath}`)
-})
+example()
 ```
 
 ## See also
 
-* [read-file-utf8](http://npm.im/read-file-utf8)
-* [fs.writeFile][writeFile]
+* [read-file-utf8]
+* [fs.writeFile]
 
 ## License
 
 [MIT](http://g14n.info/mit-license/)
 
-[writeFile]: https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback
+[fs.writeFile]: https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback
+[mkdirp]: https://www.npmjs.com/package/mkdirp
+[read-file-utf8]: http://npm.im/read-file-utf8

@@ -1,12 +1,12 @@
 {
   "name": "write-file-utf8",
   "version": "1.2.1",
-  "description": "shortcut to fs.writeFile",
+  "description": "writes content to file using utf-8 encoding, tries to create directory with mkdirp",
   "main": "write-file-utf8.js",
   "scripts": {
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "lint": "standa",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_PATH=. node example.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,12 @@
   },
   "keywords": [
     "fs",
-    "utf8"
+    "write",
+    "file",
+    "utf8",
+    "utf-8",
+    "async",
+    "promise"
   ],
   "author": {
     "name": "Gianluca Casati",
@@ -26,10 +31,10 @@
   },
   "homepage": "http://g14n.info/write-file-utf8",
   "dependencies": {
-    "static-props": "^1.0.0"
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "safe-buffer": "^5.1.1",
-    "standa": "^1.0.2"
+    "safe-buffer": "^5.2.0",
+    "standa": "^14.0.0"
   }
 }
