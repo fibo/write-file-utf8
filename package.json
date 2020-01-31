@@ -6,7 +6,7 @@
   "scripts": {
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "lint": "standa",
-    "test": "NODE_PATH=. node example.js"
+    "test": "NODE_PATH=. node usage.js"
   },
   "repository": {
     "type": "git",
