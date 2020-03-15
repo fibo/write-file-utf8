@@ -33,8 +33,5 @@
   "dependencies": {
     "mkdirp": "^0.5.1"
   },
-  "devDependencies": {
-    "safe-buffer": "^5.2.0",
-    "standa": "^14.0.0"
-  }
+  "devDependencies": {}
 }

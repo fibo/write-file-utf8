@@ -12,7 +12,7 @@ async function example () {
   try {
     await write(filePath1, content)
 
-    const buffer = new Buffer.from(content) // this is an utf-8 encoded buffer
+    const buffer = Buffer.from(content) // this is an utf-8 encoded buffer
     await write(filePath2, buffer)
   } catch (error) {
     // In case you do not have permissions to create folders,
