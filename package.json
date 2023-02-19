@@ -2,11 +2,25 @@
   "name": "write-file-utf8",
   "version": "2.0.1",
   "description": "writes content to file using utf-8 encoding, tries to create directory with mkdirp",
-  "main": "write-file-utf8.js",
+  "type": "module",
+  "main": "write-file-utf8.cjs",
+  "module": "write-file-utf8.cjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./write-file-utf8.js"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./write-file-utf8.cjs"
+      }
+    }
+  },
   "scripts": {
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
-    "lint": "standa",
-    "test": "NODE_PATH=. node usage.js"
+    "test": "node usage.js"
   },
   "repository": {
     "type": "git",
@@ -23,15 +37,14 @@
   ],
   "author": {
     "name": "Gianluca Casati",
-    "url": "http://g14n.info"
+    "url": "https://fibo.github.io"
   },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fibo/write-file-utf8/issues"
   },
-  "homepage": "http://g14n.info/write-file-utf8",
+  "homepage": "https://fibo.github.io/write-file-utf8",
   "dependencies": {
     "mkdirp": "^0.5.1"
-  },
-  "devDependencies": {}
+  }
 }

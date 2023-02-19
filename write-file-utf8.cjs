@@ -1,6 +1,6 @@
-import fs from "fs";
-import mkdirp from "mkdirp";
-import path from "path";
+const fs = require("fs");
+const { mkdirp } = require("mkdirp");
+const path = require("path");
 
 /**
  * Writes content to file using utf8 encoding.
@@ -11,14 +11,12 @@ import path from "path";
  * @return {Promise}
  */
 
-export default function writeFileUtf8(filePath, content) {
+function writeFileUtf8(filePath, content) {
   return new Promise((resolve, reject) => {
     const dir = path.dirname(filePath);
 
-    mkdirp(dir, {}, (error) => {
-      if (error) {
-        reject(error);
-      } else {
+    mkdirp
+      .then(dir, () => {
         fs.writeFile(filePath, content, "utf8", (error) => {
           if (error) {
             reject(error);
@@ -26,7 +24,11 @@ export default function writeFileUtf8(filePath, content) {
             resolve();
           }
         });
-      }
-    });
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
 }
+
+module.exports = writeFileUtf8;
