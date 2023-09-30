@@ -1,3 +1,4 @@
+import { Buffer } from "buffer";
 /**
  * Writes `content` to file using utf-8 encoding,
  * tries to create directory with mkdirp.
@@ -13,5 +14,5 @@
  */
 export default function writeFileUtf8(
   filePath: string,
-  content: string
+  content: string | Buffer,
 ): Promise<void>;

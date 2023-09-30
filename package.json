@@ -1,25 +1,18 @@
 {
   "name": "write-file-utf8",
   "version": "3.0.2",
-  "description": "writes content to file using utf-8 encoding, tries to create directory with mkdirp",
+  "description": "writes content to file using utf-8 encoding, nested folders will be created if they do not exist yet",
   "type": "module",
-  "main": "write-file-utf8.cjs",
-  "module": "write-file-utf8.cjs",
   "types": "index.d.ts",
   "exports": {
     ".": {
       "import": {
         "types": "./index.d.ts",
         "default": "./write-file-utf8.js"
-      },
-      "require": {
-        "types": "./index.d.ts",
-        "default": "./write-file-utf8.cjs"
       }
     }
   },
   "scripts": {
-    "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "test": "node usage.js"
   },
   "repository": {
@@ -44,7 +37,8 @@
     "url": "https://github.com/fibo/write-file-utf8/issues"
   },
   "homepage": "https://fibo.github.io/write-file-utf8",
-  "dependencies": {
-    "mkdirp": "^0.5.1"
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.8.0"
   }
 }
