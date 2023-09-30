@@ -1,6 +1,6 @@
 {
   "name": "write-file-utf8",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "writes content to file using utf-8 encoding, tries to create directory with mkdirp",
   "type": "module",
   "main": "write-file-utf8.cjs",
