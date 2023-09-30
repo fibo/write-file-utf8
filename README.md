@@ -3,7 +3,6 @@
 > writes content to file using utf-8 encoding, nested folders will be created if they do not exist yet
 
 [Installation](#installation) |
-[API](#api) |
 [Usage](#usage) |
 [See also](#see-also) |
 [License](#license)
@@ -12,20 +11,15 @@
 
 With [npm](https://npmjs.org/) do
 
-```bash
+```sh
 npm install write-file-utf8
 ```
 
 ## API
 
-### `write(filePath: string, content: string | Buffer): Promise<void>`
-
-It is an function that returns a _Promise_ and requires the following parameters:
-
-- **@param** `{string}` _filePath_ can be inside a nested folder that does not exist yet
-- **@param** `{string|Buffer}` _content_ will be written using _utf-8_ encoding
-
 ## Usage
+
+`write(filePath: string, content: string | Buffer): Promise<void>`
 
 ```javascript
 import write from "write-file-utf8";
@@ -36,7 +30,7 @@ const filePath2 = "/tmp/quz/bar/foo.txt";
 
 const content = "Hello";
 
-// Write a `string` into file.
+// Write a `string` into a file.
 //////////////////////////////////////////////////////////////////
 try {
   await write(filePath1, content);
@@ -46,7 +40,7 @@ try {
   console.error(error);
 }
 
-// Can also write a `Buffer` into file.
+// Can also write a `Buffer` into a file.
 //////////////////////////////////////////////////////////////////
 try {
   const buffer = Buffer.from(content); // this is an utf-8 encoded buffer

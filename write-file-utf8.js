@@ -3,6 +3,7 @@ import path from "path";
 
 /**
  * Writes content to file using utf8 encoding.
+ * Nested folders will be created if they do not exist yet.
  *
  * @param {string} filePath
  * @param {string | Buffer} content
