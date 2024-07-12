@@ -2,11 +2,6 @@
 
 > writes content to file using utf-8 encoding, nested folders will be created if they do not exist yet
 
-[Installation](#installation) |
-[Usage](#usage) |
-[See also](#see-also) |
-[License](#license)
-
 ## Installation
 
 With [npm](https://npmjs.org/) do
@@ -14,8 +9,6 @@ With [npm](https://npmjs.org/) do
 ```sh
 npm install write-file-utf8
 ```
-
-## API
 
 ## Usage
 
@@ -52,7 +45,7 @@ try {
 
 ## See also
 
-- [read-file-utf8](https://fibo.github.io/read-file-utf8)
+- [read-file-utf8](https://github.com/fibo/read-file-utf8)
 
 ## License
 
