@@ -1,6 +1,6 @@
 # write-file-utf8
 
-> writes content to file using utf-8 encoding, nested folders will be created if they do not exist yet
+> Writes content to a file using utf-8 encoding, nested folders will be created if they do not exist yet
 
 ## Installation
 
@@ -43,10 +43,3 @@ try {
 }
 ```
 
-## See also
-
-- [read-file-utf8](https://github.com/fibo/read-file-utf8)
-
-## License
-
-[MIT](https://fibo.github.io/mit-license/)
