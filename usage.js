@@ -1,4 +1,4 @@
-import write from "./write-file-utf8.js";
+import write from "write-file-utf8";
 
 // Nested folders will be created if they do not exist yet.
 const filePath1 = "/tmp/foo/bar.txt";
